@@ -84,29 +84,29 @@ export function AuthForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:bg-slate-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center w-20 h-20 bg-blue-600 rounded-2xl mx-auto mb-4">
             <Pill className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">PillBridge</h1>
-          <p className="text-lg text-gray-600">Medication Care Made Simple</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">PillBridge</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">Medication Care Made Simple</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8">
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               {isLogin ? 'Welcome Back' : 'Join PillBridge'}
             </h2>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 dark:text-gray-400 mt-2">
               {isLogin ? 'Sign in to your account' : 'Create your account'}
             </p>
           </div>
 
           {!isLogin && (
             <div className="mb-6">
-              <label className="block text-lg font-semibold text-gray-700 mb-3">
+              <label className="block text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">
                 I am a:
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -115,8 +115,8 @@ export function AuthForm() {
                   onClick={() => setRole('patient')}
                   className={`flex items-center justify-center p-4 rounded-xl border-2 transition-all duration-200 ${
                     role === 'patient'
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+                      ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 dark:border-blue-500'
+                      : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 dark:bg-slate-700 dark:border-slate-600 dark:text-gray-300 dark:hover:border-slate-500'
                   }`}
                 >
                   <Heart className="h-6 w-6 mr-2" />
@@ -127,8 +127,8 @@ export function AuthForm() {
                   onClick={() => setRole('caregiver')}
                   className={`flex items-center justify-center p-4 rounded-xl border-2 transition-all duration-200 ${
                     role === 'caregiver'
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+                      ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 dark:border-blue-500'
+                      : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 dark:bg-slate-700 dark:border-slate-600 dark:text-gray-300 dark:hover:border-slate-500'
                   }`}
                 >
                   <Users className="h-6 w-6 mr-2" />
@@ -139,16 +139,16 @@ export function AuthForm() {
           )}
 
           {error && (
-            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
+            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center dark:bg-red-900/20 dark:border-red-500/30">
               <AlertCircle className="h-5 w-5 text-red-500 mr-2" />
-              <span className="text-red-700">{error}</span>
+              <span className="text-red-700 dark:text-red-300">{error}</span>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
               <div>
-                <label htmlFor="fullName" className="block text-lg font-medium text-gray-700 mb-2">
+                <label htmlFor="fullName" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Full Name
                 </label>
                 <input
@@ -158,14 +158,14 @@ export function AuthForm() {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                   placeholder="Enter your full name"
                 />
               </div>
             )}
 
             <div>
-              <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email Address
               </label>
               <input
@@ -175,13 +175,13 @@ export function AuthForm() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Password
               </label>
               <input
@@ -191,14 +191,14 @@ export function AuthForm() {
                 value={formData.password}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="Enter your password"
               />
             </div>
 
             {!isLogin && role === 'patient' && (
               <div>
-                <label htmlFor="caregiverCode" className="block text-lg font-medium text-gray-700 mb-2">
+                <label htmlFor="caregiverCode" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Caregiver Code
                 </label>
                 <input
@@ -208,10 +208,10 @@ export function AuthForm() {
                   value={formData.caregiverCode}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent uppercase"
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent uppercase dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                   placeholder="Enter caregiver's code"
                 />
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                   Ask your caregiver for their 6-character code
                 </p>
               </div>
@@ -220,7 +220,7 @@ export function AuthForm() {
             {!isLogin && (
               <>
                 <div>
-                  <label htmlFor="emergencyContact" className="block text-lg font-medium text-gray-700 mb-2">
+                  <label htmlFor="emergencyContact" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Emergency Contact Name
                   </label>
                   <input
@@ -229,13 +229,13 @@ export function AuthForm() {
                     name="emergencyContact"
                     value={formData.emergencyContact}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                     placeholder="Emergency contact name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="emergencyPhone" className="block text-lg font-medium text-gray-700 mb-2">
+                  <label htmlFor="emergencyPhone" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Emergency Phone Number
                   </label>
                   <input
@@ -244,7 +244,7 @@ export function AuthForm() {
                     name="emergencyPhone"
                     value={formData.emergencyPhone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                     placeholder="Emergency phone number"
                   />
                 </div>
@@ -254,7 +254,7 @@ export function AuthForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-lg font-semibold py-4 rounded-lg transition-colors duration-200"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-lg font-semibold py-4 rounded-lg transition-colors duration-200 dark:disabled:bg-blue-500/50"
             >
               {loading ? 'Please wait...' : (isLogin ? 'Sign In' : 'Create Account')}
             </button>
@@ -275,7 +275,7 @@ export function AuthForm() {
                   emergencyPhone: '',
                 });
               }}
-              className="text-blue-600 hover:text-blue-700 font-medium text-lg"
+              className="text-blue-600 hover:text-blue-700 font-medium text-lg dark:text-blue-400 dark:hover:text-blue-300"
             >
               {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
             </button>

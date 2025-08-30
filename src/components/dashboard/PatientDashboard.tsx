@@ -331,20 +331,20 @@ export function PatientDashboard() {
   }
 
   return (
-    <div className="p-4 lg:p-8 bg-gray-50 min-h-screen space-y-6 lg:space-y-8">
+    <div className="p-4 lg:p-8 bg-gray-50 dark:bg-slate-900 min-h-screen space-y-6 lg:space-y-8">
       {/* Notification Banner */}
-      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4">
+      <div className="bg-blue-50 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-500/30 rounded-2xl p-4">
         <div className="flex items-center">
           <div className="flex-shrink-0">
-            <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+            <svg className="h-5 w-5 text-blue-400 dark:text-blue-300" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
             </svg>
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-blue-800">
+            <h3 className="text-sm font-medium text-blue-800 dark:text-blue-200">
               Audio Medication Reminders Active
             </h3>
-            <div className="mt-2 text-sm text-blue-700">
+            <div className="mt-2 text-sm text-blue-700 dark:text-blue-300">
               <p>
                 You'll receive audio notifications at your scheduled medication times. 
                 Make sure your browser notifications are enabled for the best experience.
@@ -357,13 +357,13 @@ export function PatientDashboard() {
       {/* Welcome Section with Message Sidebar */}
       <div className="flex space-x-6">
         {/* Welcome Box */}
-        <div className="flex-1 bg-white rounded-2xl shadow-lg p-6">
+        <div className="flex-1 bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
                 Welcome back, {user?.full_name}!
               </h1>
-              <p className="text-lg text-gray-600 mt-1">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mt-1">
                 Today is {new Date().toLocaleDateString('en-US', { 
                   weekday: 'long', 
                   year: 'numeric', 
@@ -376,7 +376,7 @@ export function PatientDashboard() {
               {/* PDF Download Button */}
               <button
                 onClick={handleDownloadPDF}
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200"
+                className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-400 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200"
                 title="Download your health report as PDF"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -386,9 +386,9 @@ export function PatientDashboard() {
               </button>
               
               <div className="text-right">
-                <div className="bg-blue-50 rounded-xl p-4">
-                  <p className="text-sm text-blue-600 font-medium">Today's Reminders</p>
-                  <p className="text-2xl font-bold text-blue-700">{reminders.length}</p>
+                <div className="bg-blue-50 dark:bg-blue-900/50 rounded-xl p-4">
+                  <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">Today's Reminders</p>
+                  <p className="text-2xl font-bold text-blue-700 dark:text-blue-200">{reminders.length}</p>
                 </div>
               </div>
             </div>
@@ -396,34 +396,34 @@ export function PatientDashboard() {
 
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-green-50 rounded-xl p-4">
+            <div className="bg-green-50 dark:bg-green-900/50 rounded-xl p-4">
               <div className="flex items-center">
-                <Pills className="h-8 w-8 text-green-600 mr-3" />
+                <Pills className="h-8 w-8 text-green-600 dark:text-green-400 mr-3" />
                 <div>
-                  <p className="text-sm text-green-600 font-medium">Active Medications</p>
-                  <p className="text-xl font-bold text-green-700">{medications.length}</p>
+                  <p className="text-sm text-green-600 dark:text-green-300 font-medium">Active Medications</p>
+                  <p className="text-xl font-bold text-green-700 dark:text-green-200">{medications.length}</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-yellow-50 rounded-xl p-4">
+            <div className="bg-yellow-50 dark:bg-yellow-900/50 rounded-xl p-4">
               <div className="flex items-center">
-                <Calendar className="h-8 w-8 text-yellow-600 mr-3" />
+                <Calendar className="h-8 w-8 text-yellow-600 dark:text-yellow-400 mr-3" />
                 <div>
-                  <p className="text-sm text-yellow-600 font-medium">Low Stock Items</p>
-                  <p className="text-xl font-bold text-yellow-700">
+                  <p className="text-sm text-yellow-600 dark:text-yellow-300 font-medium">Low Stock Items</p>
+                  <p className="text-xl font-bold text-yellow-700 dark:text-yellow-200">
                     {medications.filter(med => med.current_count <= med.low_stock_threshold).length}
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-purple-50 rounded-xl p-4">
+            <div className="bg-purple-50 dark:bg-purple-900/50 rounded-xl p-4">
               <div className="flex items-center">
-                <Heart className="h-8 w-8 text-purple-600 mr-3" />
+                <Heart className="h-8 w-8 text-purple-600 dark:text-purple-400 mr-3" />
                 <div>
-                  <p className="text-sm text-purple-600 font-medium">Mood Today</p>
-                  <p className="text-xl font-bold text-purple-700">Track Now</p>
+                  <p className="text-sm text-purple-600 dark:text-purple-300 font-medium">Mood Today</p>
+                  <p className="text-xl font-bold text-purple-700 dark:text-purple-200">Track Now</p>
                 </div>
               </div>
             </div>
@@ -437,8 +437,8 @@ export function PatientDashboard() {
       </div>
 
       {/* Navigation Tabs - Full width */}
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="border-b border-gray-200">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden">
+        <div className="border-b border-gray-200 dark:border-slate-700">
           <nav className="flex overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -454,8 +454,8 @@ export function PatientDashboard() {
                   }}
                   className={`flex items-center space-x-3 px-6 py-4 text-lg font-medium whitespace-nowrap transition-colors duration-200 relative ${
                     activeTab === tab.id
-                      ? 'border-b-2 border-blue-500 text-blue-600 bg-blue-50'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'border-b-2 border-blue-500 text-blue-600 bg-blue-50 dark:bg-blue-900/50 dark:text-blue-400'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-slate-700'
                   }`}
                 >
                   <Icon className="h-6 w-6" />
@@ -494,35 +494,35 @@ export function PatientDashboard() {
           {activeTab === 'reminders' && (
             <div>
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">Reminders</h2>
-                <button onClick={openAddReminder} className="bg-blue-600 text-white px-4 py-2 rounded-lg">Add Reminder</button>
+                <h2 className="text-2xl font-bold dark:text-gray-100">Reminders</h2>
+                <button onClick={openAddReminder} className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white px-4 py-2 rounded-lg">Add Reminder</button>
               </div>
               <ul className="space-y-2">
                 {reminders.map((reminder: any) => (
-                  <li key={reminder._id} className="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
-                    <div>
-                      <div><span className="font-semibold">Time:</span> {reminder.reminder_time}</div>
-                      <div><span className="font-semibold">Acknowledged:</span> {reminder.acknowledged ? 'Yes' : 'No'}</div>
-                      <div><span className="font-semibold">Escalated:</span> {reminder.escalated ? 'Yes' : 'No'}</div>
+                  <li key={reminder._id} className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4 flex justify-between items-center">
+                    <div className="dark:text-gray-300">
+                      <div><span className="font-semibold dark:text-gray-200">Time:</span> {reminder.reminder_time}</div>
+                      <div><span className="font-semibold dark:text-gray-200">Acknowledged:</span> {reminder.acknowledged ? 'Yes' : 'No'}</div>
+                      <div><span className="font-semibold dark:text-gray-200">Escalated:</span> {reminder.escalated ? 'Yes' : 'No'}</div>
                     </div>
                     <div className="flex space-x-2">
-                      <button onClick={() => openEditReminder(reminder)} className="px-3 py-1 bg-gray-200 rounded">Edit</button>
-                      <button onClick={() => handleDeleteReminder(reminder._id)} className="px-3 py-1 bg-red-200 text-red-700 rounded">Delete</button>
+                      <button onClick={() => openEditReminder(reminder)} className="px-3 py-1 bg-gray-200 dark:bg-slate-600 dark:text-gray-200 dark:hover:bg-slate-500 rounded">Edit</button>
+                      <button onClick={() => handleDeleteReminder(reminder._id)} className="px-3 py-1 bg-red-200 text-red-700 dark:bg-red-500/30 dark:text-red-200 dark:hover:bg-red-500/50 rounded">Delete</button>
                     </div>
                   </li>
                 ))}
               </ul>
               {showReminderModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-                  <div className="bg-white rounded-xl p-8 w-full max-w-md shadow-xl relative">
-                    <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={() => setShowReminderModal(false)}>&times;</button>
-                    <h2 className="text-xl font-bold mb-4">{editingReminder ? 'Edit' : 'Add'} Reminder</h2>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-8 w-full max-w-md shadow-xl relative">
+                    <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" onClick={() => setShowReminderModal(false)}>&times;</button>
+                    <h2 className="text-xl font-bold mb-4 dark:text-gray-100">{editingReminder ? 'Edit' : 'Add'} Reminder</h2>
                     <form onSubmit={handleReminderSubmit} className="space-y-4">
                       <div>
-                        <label className="block text-lg font-medium text-gray-700 mb-1">Reminder Time</label>
-                        <input type="datetime-local" name="reminder_time" value={reminderForm.reminder_time} onChange={handleReminderFormChange} className="w-full px-4 py-2 border rounded-lg" required />
+                        <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Reminder Time</label>
+                        <input type="datetime-local" name="reminder_time" value={reminderForm.reminder_time} onChange={handleReminderFormChange} className="w-full px-4 py-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200" required />
                       </div>
-                      <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200">
+                      <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white font-semibold py-3 rounded-lg transition-colors duration-200">
                         Save
                       </button>
                     </form>

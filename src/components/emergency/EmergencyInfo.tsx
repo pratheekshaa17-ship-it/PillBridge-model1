@@ -124,52 +124,52 @@ export function EmergencyInfo() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center">
-        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Phone className="h-8 w-8 text-red-600" />
+        <div className="w-16 h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Phone className="h-8 w-8 text-red-600 dark:text-red-400" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900">Emergency Information</h2>
-        <p className="text-gray-600 mt-2">Quick access to important contacts and nearby pharmacies</p>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Emergency Information</h2>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">Quick access to important contacts and nearby pharmacies</p>
       </div>
 
       {/* Emergency Contacts - Caregiver Information */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 flex items-center">
-            <Phone className="h-6 w-6 text-red-600 mr-2" />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+            <Phone className="h-6 w-6 text-red-600 dark:text-red-400 mr-2" />
             Emergency Contact - Your Caregiver
           </h3>
-          <div className="bg-green-50 px-3 py-1 rounded-full">
-            <span className="text-sm text-green-700 font-medium">Auto-populated</span>
+          <div className="bg-green-50 dark:bg-green-900/50 px-3 py-1 rounded-full">
+            <span className="text-sm text-green-700 dark:text-green-300 font-medium">Auto-populated</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
               Caregiver Name
             </label>
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-              <p className="text-lg text-blue-900 font-medium">
+            <div className="bg-blue-50 dark:bg-blue-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-500/30">
+              <p className="text-lg text-blue-900 dark:text-blue-200 font-medium">
                 {caregiverData.name}
               </p>
             </div>
           </div>
 
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
               Caregiver Contact
             </label>
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-              <p className="text-lg text-blue-900 font-medium mb-1">
+            <div className="bg-blue-50 dark:bg-blue-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-500/30">
+              <p className="text-lg text-blue-900 dark:text-blue-200 font-medium mb-1">
                 {caregiverData.phone !== 'N/A' ? caregiverData.phone : 'Phone not provided'}
               </p>
-              <p className="text-sm text-blue-700">
+              <p className="text-sm text-blue-700 dark:text-blue-300">
                 {caregiverData.email}
               </p>
               {caregiverData.phone !== 'N/A' && caregiverData.phone !== 'Not available' && (
                 <a
                   href={`tel:${caregiverData.phone}`}
-                  className="inline-flex items-center mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
+                  className="inline-flex items-center mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 dark:bg-blue-500 dark:hover:bg-blue-400"
                 >
                   <Phone className="h-4 w-4 mr-2" />
                   Call Caregiver
@@ -180,8 +180,8 @@ export function EmergencyInfo() {
         </div>
 
         {/* Quick Call Buttons */}
-        <div className="mt-6 pt-6 border-t border-gray-200">
-          <h4 className="text-lg font-semibold text-gray-900 mb-4">Quick Emergency Numbers</h4>
+        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Quick Emergency Numbers</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a
               href="tel:911"
@@ -209,16 +209,16 @@ export function EmergencyInfo() {
       </div>
 
       {/* Hospital Information */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 flex items-center">
-            <Building2 className="h-6 w-6 text-blue-600 mr-2" />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+            <Building2 className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-2" />
             Preferred Hospital & Doctor
           </h3>
           {!editingHospital ? (
             <button
               onClick={() => setEditingHospital(true)}
-              className="flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg transition-colors duration-200"
+              className="flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg transition-colors duration-200 dark:bg-blue-900/50 dark:hover:bg-blue-900/80 dark:text-blue-300"
             >
               <Edit3 className="h-4 w-4 mr-2" />
               {hospitalData.hospitalName ? 'Edit' : 'Add Hospital'}
@@ -228,7 +228,7 @@ export function EmergencyInfo() {
               <button
                 onClick={handleSaveHospital}
                 disabled={loading}
-                className="flex items-center px-4 py-2 bg-green-100 hover:bg-green-200 text-green-600 rounded-lg transition-colors duration-200"
+                className="flex items-center px-4 py-2 bg-green-100 hover:bg-green-200 text-green-600 rounded-lg transition-colors duration-200 dark:bg-green-900/50 dark:hover:bg-green-900/80 dark:text-green-300"
               >
                 <Save className="h-4 w-4 mr-2" />
                 Save
@@ -238,7 +238,7 @@ export function EmergencyInfo() {
                   setEditingHospital(false);
                   fetchEmergencyInfo(); // Reset to original data
                 }}
-                className="flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg transition-colors duration-200"
+                className="flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg transition-colors duration-200 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-gray-300"
               >
                 <X className="h-4 w-4 mr-2" />
                 Cancel
@@ -251,7 +251,7 @@ export function EmergencyInfo() {
           {/* Hospital Information */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
-              <label className="block text-lg font-medium text-gray-700 mb-2">
+              <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Hospital Name
               </label>
               {editingHospital ? (
@@ -259,12 +259,12 @@ export function EmergencyInfo() {
                   type="text"
                   value={hospitalData.hospitalName}
                   onChange={(e) => setHospitalData(prev => ({ ...prev, hospitalName: e.target.value }))}
-                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                   placeholder="Enter hospital name"
                 />
               ) : (
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-lg text-gray-900">
+                <div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4">
+                  <p className="text-lg text-gray-900 dark:text-gray-100">
                     {hospitalData.hospitalName || 'Not set'}
                   </p>
                 </div>
@@ -272,7 +272,7 @@ export function EmergencyInfo() {
             </div>
 
             <div>
-              <label className="block text-lg font-medium text-gray-700 mb-2">
+              <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Hospital Phone
               </label>
               {editingHospital ? (
@@ -280,18 +280,18 @@ export function EmergencyInfo() {
                   type="tel"
                   value={hospitalData.hospitalPhone}
                   onChange={(e) => setHospitalData(prev => ({ ...prev, hospitalPhone: e.target.value }))}
-                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                   placeholder="Enter hospital phone"
                 />
               ) : (
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-lg text-gray-900">
+                <div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4">
+                  <p className="text-lg text-gray-900 dark:text-gray-100">
                     {hospitalData.hospitalPhone || 'Not set'}
                   </p>
                   {hospitalData.hospitalPhone && (
                     <a
                       href={`tel:${hospitalData.hospitalPhone}`}
-                      className="inline-flex items-center mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
+                      className="inline-flex items-center mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 dark:bg-blue-500 dark:hover:bg-blue-400"
                     >
                       <Phone className="h-4 w-4 mr-2" />
                       Call Hospital
@@ -303,7 +303,7 @@ export function EmergencyInfo() {
           </div>
 
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
               Hospital Address
             </label>
             {editingHospital ? (
@@ -311,12 +311,12 @@ export function EmergencyInfo() {
                 value={hospitalData.hospitalAddress}
                 onChange={(e) => setHospitalData(prev => ({ ...prev, hospitalAddress: e.target.value }))}
                 rows={3}
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="Enter hospital address"
               />
             ) : (
-              <div className="bg-gray-50 rounded-lg p-4">
-                <p className="text-lg text-gray-900">
+              <div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4">
+                <p className="text-lg text-gray-900 dark:text-gray-100">
                   {hospitalData.hospitalAddress || 'Not set'}
                 </p>
                 {hospitalData.hospitalAddress && (
@@ -324,7 +324,7 @@ export function EmergencyInfo() {
                     href={`https://maps.google.com/maps?q=${encodeURIComponent(hospitalData.hospitalAddress)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
+                    className="inline-flex items-center mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200 dark:bg-green-500 dark:hover:bg-green-400"
                   >
                     <MapPin className="h-4 w-4 mr-2" />
                     Get Directions
@@ -335,11 +335,11 @@ export function EmergencyInfo() {
           </div>
 
           {/* Doctor Information */}
-          <div className="pt-6 border-t border-gray-200">
-            <h4 className="text-lg font-semibold text-gray-900 mb-4">Primary Care Doctor</h4>
+          <div className="pt-6 border-t border-gray-200 dark:border-slate-700">
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Primary Care Doctor</h4>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Doctor Name
                 </label>
                 {editingHospital ? (
@@ -347,12 +347,12 @@ export function EmergencyInfo() {
                     type="text"
                     value={hospitalData.doctorName}
                     onChange={(e) => setHospitalData(prev => ({ ...prev, doctorName: e.target.value }))}
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                     placeholder="Enter doctor's name"
                   />
                 ) : (
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-lg text-gray-900">
+                  <div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4">
+                    <p className="text-lg text-gray-900 dark:text-gray-100">
                       {hospitalData.doctorName || 'Not set'}
                     </p>
                   </div>
@@ -360,7 +360,7 @@ export function EmergencyInfo() {
               </div>
 
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Doctor Phone
                 </label>
                 {editingHospital ? (
@@ -368,18 +368,18 @@ export function EmergencyInfo() {
                     type="tel"
                     value={hospitalData.doctorPhone}
                     onChange={(e) => setHospitalData(prev => ({ ...prev, doctorPhone: e.target.value }))}
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                     placeholder="Enter doctor's phone"
                   />
                 ) : (
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-lg text-gray-900">
+                  <div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4">
+                    <p className="text-lg text-gray-900 dark:text-gray-100">
                       {hospitalData.doctorPhone || 'Not set'}
                     </p>
                     {hospitalData.doctorPhone && (
                       <a
                         href={`tel:${hospitalData.doctorPhone}`}
-                        className="inline-flex items-center mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
+                        className="inline-flex items-center mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200 dark:bg-green-500 dark:hover:bg-green-400"
                       >
                         <Phone className="h-4 w-4 mr-2" />
                         Call Doctor
@@ -394,26 +394,26 @@ export function EmergencyInfo() {
       </div>
 
       {/* Nearby Pharmacies */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-          <MapPin className="h-6 w-6 text-blue-600 mr-2" />
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
+          <MapPin className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-2" />
           Nearby Pharmacies
         </h3>
 
         <div className="space-y-4">
           {nearbyPharmacies.map((pharmacy, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+            <div key={index} className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-6 border border-gray-200 dark:border-slate-600">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <h4 className="text-lg font-semibold text-gray-900">{pharmacy.name}</h4>
-                  <p className="text-gray-600 mt-1">{pharmacy.address}</p>
-                  <p className="text-gray-600">{pharmacy.hours}</p>
-                  <p className="text-sm text-blue-600 font-medium mt-1">{pharmacy.distance} away</p>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{pharmacy.name}</h4>
+                  <p className="text-gray-600 dark:text-gray-400 mt-1">{pharmacy.address}</p>
+                  <p className="text-gray-600 dark:text-gray-400">{pharmacy.hours}</p>
+                  <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mt-1">{pharmacy.distance} away</p>
                 </div>
                 <div className="flex flex-col space-y-2">
                   <a
                     href={`tel:${pharmacy.phone}`}
-                    className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
+                    className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200 dark:bg-green-500 dark:hover:bg-green-400"
                   >
                     <Phone className="h-4 w-4 mr-2" />
                     Call
@@ -422,7 +422,7 @@ export function EmergencyInfo() {
                     href={`https://maps.google.com/maps?q=${encodeURIComponent(pharmacy.address)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 dark:bg-blue-500 dark:hover:bg-blue-400"
                   >
                     <MapPin className="h-4 w-4 mr-2" />
                     Directions

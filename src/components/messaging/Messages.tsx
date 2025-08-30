@@ -85,10 +85,10 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-      <div className="p-6 border-b border-gray-200">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden">
+      <div className="p-6 border-b border-gray-200 dark:border-slate-700">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 flex items-center">
             <Mail className="h-6 w-6 mr-2" />
             Messages
             {unreadCount > 0 && (
@@ -105,7 +105,7 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               filter === 'all'
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-slate-700 dark:text-gray-300 dark:hover:bg-slate-600'
             }`}
           >
             All Messages
@@ -115,7 +115,7 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               filter === 'unread'
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-slate-700 dark:text-gray-300 dark:hover:bg-slate-600'
             }`}
           >
             Unread ({unreadCount})
@@ -125,11 +125,11 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
 
       {filteredMessages.length === 0 ? (
         <div className="text-center py-12">
-          <Mail className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
+          <Mail className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
             {filter === 'unread' ? 'No Unread Messages' : 'No Messages'}
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-400">
             {filter === 'unread' 
               ? 'You have no unread messages at the moment.'
               : 'You have no messages yet.'}
@@ -138,41 +138,41 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
       ) : (
         <div className="flex h-96">
           {/* Messages List */}
-          <div className="w-1/2 border-r border-gray-200 overflow-y-auto">
+          <div className="w-1/2 border-r border-gray-200 dark:border-slate-700 overflow-y-auto">
             {filteredMessages.map((message) => (
               <div
                 key={message._id}
                 onClick={() => handleMessageClick(message)}
-                className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors ${
-                  selectedMessage?._id === message._id ? 'bg-blue-50 border-blue-200' : ''
+                className={`p-4 border-b border-gray-100 dark:border-slate-700/50 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors ${
+                  selectedMessage?._id === message._id ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-500/30' : ''
                 } ${
-                  !message.read && message.recipient_id === user?._id ? 'bg-blue-25' : ''
+                  !message.read && message.recipient_id === user?._id ? 'bg-blue-25 dark:bg-blue-900/20' : ''
                 }`}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-2 flex-1 min-w-0">
                     {!message.read && message.recipient_id === user?._id ? (
-                      <Mail className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                      <Mail className="h-4 w-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
                     ) : (
-                      <MailOpen className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                      <MailOpen className="h-4 w-4 text-gray-400 dark:text-gray-500 flex-shrink-0" />
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2">
-                        <User className="h-3 w-3 text-gray-400" />
-                        <p className="text-sm font-medium text-gray-900 truncate">
+                        <User className="h-3 w-3 text-gray-400 dark:text-gray-500" />
+                        <p className="text-sm font-medium text-gray-900 dark:text-gray-200 truncate">
                           {message.sender_id === user?._id ? `To: ${message.recipient_name}` : `From: ${message.sender_name}`}
                         </p>
                       </div>
-                      <p className="text-sm font-semibold text-gray-800 truncate mt-1">
+                      <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 truncate mt-1">
                         {message.subject}
                       </p>
-                      <p className="text-xs text-gray-500 truncate mt-1">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate mt-1">
                         {message.content.substring(0, 50)}...
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col items-end space-y-1">
-                    <div className="flex items-center text-xs text-gray-500">
+                    <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
                       <Clock className="h-3 w-3 mr-1" />
                       {new Date(message.created_at).toLocaleDateString()}
                     </div>
@@ -182,7 +182,7 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
                           e.stopPropagation();
                           handleDeleteMessage(message._id);
                         }}
-                        className="p-1 text-red-500 hover:text-red-700 hover:bg-red-50 rounded"
+                        className="p-1 text-red-500 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/50 dark:hover:text-red-300 rounded"
                       >
                         <Trash2 className="h-3 w-3" />
                       </button>
@@ -197,11 +197,11 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
           <div className="flex-1 overflow-y-auto">
             {selectedMessage ? (
               <div className="p-6">
-                <div className="mb-4 pb-4 border-b border-gray-200">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <div className="mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
                     {selectedMessage.subject}
                   </h3>
-                  <div className="flex items-center justify-between text-sm text-gray-600">
+                  <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
                     <div>
                       <p><strong>From:</strong> {selectedMessage.sender_name} ({selectedMessage.sender_role})</p>
                       <p><strong>To:</strong> {selectedMessage.recipient_name} ({selectedMessage.recipient_role})</p>
@@ -212,14 +212,14 @@ export function Messages({ onUnreadCountChange }: MessagesProps = {}) {
                     </div>
                   </div>
                 </div>
-                <div className="prose prose-sm max-w-none">
+                <div className="prose prose-sm max-w-none dark:prose-invert">
                   <p className="whitespace-pre-wrap">{selectedMessage.content}</p>
                 </div>
               </div>
             ) : (
-              <div className="flex items-center justify-center h-full text-gray-500">
+              <div className="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">
                 <div className="text-center">
-                  <Mail className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+                  <Mail className="h-12 w-12 mx-auto mb-2 text-gray-300 dark:text-gray-600" />
                   <p>Select a message to read</p>
                 </div>
               </div>

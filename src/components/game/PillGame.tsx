@@ -215,9 +215,9 @@ export function PillGame({ medications }: PillGameProps) {
   if (medications.length < 2) {
     return (
       <div className="text-center py-12">
-        <Gamepad2 className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Not Ready Yet</h3>
-        <p className="text-gray-600">
+        <Gamepad2 className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Not Ready Yet</h3>
+        <p className="text-gray-600 dark:text-gray-400">
           Add at least 2 medications with photos to play the Pill Recognition Game
         </p>
       </div>
@@ -227,20 +227,20 @@ export function PillGame({ medications }: PillGameProps) {
   if (gameState === 'menu') {
     return (
       <div className="max-w-2xl mx-auto text-center">
-        <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Gamepad2 className="h-10 w-10 text-purple-600" />
+        <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Gamepad2 className="h-10 w-10 text-purple-600 dark:text-purple-400" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Pill Recognition Challenge</h2>
-        <p className="text-lg text-gray-600 mb-8">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">Pill Recognition Challenge</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
           Test your knowledge by matching medication names to their photos. 
           This helps reinforce your medication recognition skills!
         </p>
 
         {/* Game Instructions */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left">
-          <h4 className="font-semibold text-blue-800 mb-2">How to Play:</h4>
-          <div className="text-sm text-blue-700 space-y-1">
+        <div className="bg-blue-50 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-500/30 rounded-lg p-4 mb-6 text-left">
+          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">How to Play:</h4>
+          <div className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
             <p>• Look at the medication image shown</p>
             <p>• Choose the correct medication name from the options</p>
             <p>• Answer as many questions as you can</p>
@@ -248,25 +248,25 @@ export function PillGame({ medications }: PillGameProps) {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text-center">
               <Trophy className="h-12 w-12 text-yellow-500 mx-auto mb-3" />
-              <p className="text-sm text-gray-600 font-medium">Best Score</p>
-              <p className="text-2xl font-bold text-gray-900">{bestScore}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Best Score</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{bestScore}</p>
             </div>
             
             <div className="text-center">
               <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-              <p className="text-sm text-gray-600 font-medium">Available Medications</p>
-              <p className="text-2xl font-bold text-gray-900">{medications.length}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Available Medications</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{medications.length}</p>
             </div>
           </div>
         </div>
 
         <button
           onClick={startGame}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-xl font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+          className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-400 text-white text-xl font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
         >
           Start Game
         </button>
@@ -282,16 +282,16 @@ export function PillGame({ medications }: PillGameProps) {
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               Question {currentQuestion + 1} of {questions.length}
             </h2>
             <div className="text-right">
-              <p className="text-sm text-gray-600">Score</p>
-              <p className="text-xl font-bold text-blue-600">{score}/{questions.length}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Score</p>
+              <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{score}/{questions.length}</p>
             </div>
           </div>
           
-          <div className="w-full bg-gray-200 rounded-full h-3">
+          <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-3">
             <div
               className="bg-blue-500 h-3 rounded-full transition-all duration-300"
               style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
@@ -299,13 +299,13 @@ export function PillGame({ medications }: PillGameProps) {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
           <div className="text-center mb-8">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
               Which medication is this?
             </h3>
             
-            <div className="w-64 h-64 mx-auto mb-6 bg-gray-100 rounded-xl overflow-hidden relative">
+            <div className="w-64 h-64 mx-auto mb-6 bg-gray-100 dark:bg-slate-700 rounded-xl overflow-hidden relative">
               {question.medication.image_url ? (
                 <>
                   <img
@@ -317,17 +317,17 @@ export function PillGame({ medications }: PillGameProps) {
                   />
                   {/* Fallback for when image fails to load */}
                   <div 
-                    className="w-full h-full flex items-center justify-center absolute inset-0 bg-gray-100"
+                    className="w-full h-full flex items-center justify-center absolute inset-0 bg-gray-100 dark:bg-slate-700"
                     style={{ display: imageLoadError ? 'flex' : 'none' }}
                   >
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Gamepad2 className="h-8 w-8 text-red-600" />
+                      <div className="w-16 h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Gamepad2 className="h-8 w-8 text-red-600 dark:text-red-400" />
                       </div>
-                      <p className="text-red-600">Image not available</p>
-                      <p className="text-sm text-gray-500 mt-2">Medication: {question.medication.name}</p>
+                      <p className="text-red-600 dark:text-red-300">Image not available</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Medication: {question.medication.name}</p>
                       {imageLoadError && (
-                        <p className="text-xs text-gray-400 mt-1 break-all px-2">{imageLoadError}</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-1 break-all px-2">{imageLoadError}</p>
                       )}
                     </div>
                   </div>
@@ -335,11 +335,11 @@ export function PillGame({ medications }: PillGameProps) {
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <Gamepad2 className="h-8 w-8 text-blue-600" />
+                    <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Gamepad2 className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <p className="text-gray-600">No image available</p>
-                    <p className="text-sm text-gray-500 mt-2">Medication: {question.medication.name}</p>
+                    <p className="text-gray-600 dark:text-gray-400">No image available</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">Medication: {question.medication.name}</p>
                     {/* Generate a placeholder image URL for medications without images */}
                     {question.medication.name && (
                       <div className="mt-2">
@@ -362,16 +362,16 @@ export function PillGame({ medications }: PillGameProps) {
               
               if (showResult && selectedAnswer) {
                 if (answer === question.correctAnswer) {
-                  buttonClass += "border-green-500 bg-green-50 text-green-700";
+                  buttonClass += "border-green-500 bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300";
                 } else if (answer === selectedAnswer && answer !== question.correctAnswer) {
-                  buttonClass += "border-red-500 bg-red-50 text-red-700";
+                  buttonClass += "border-red-500 bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-300";
                 } else {
-                  buttonClass += "border-gray-200 bg-gray-50 text-gray-500";
+                  buttonClass += "border-gray-200 bg-gray-50 text-gray-500 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-400";
                 }
               } else if (selectedAnswer === answer) {
-                buttonClass += "border-blue-500 bg-blue-50 text-blue-700";
+                buttonClass += "border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300";
               } else {
-                buttonClass += "border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700";
+                buttonClass += "border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700 dark:border-slate-600 dark:hover:border-slate-500 dark:hover:bg-slate-700 dark:text-gray-300";
               }
 
               return (
@@ -405,42 +405,42 @@ export function PillGame({ medications }: PillGameProps) {
 
     return (
       <div className="max-w-2xl mx-auto text-center">
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Trophy className="h-10 w-10 text-green-600" />
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
+          <div className="w-20 h-20 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Trophy className="h-10 w-10 text-green-600 dark:text-green-400" />
           </div>
           
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Game Complete!</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">Game Complete!</h2>
           
-          <div className="bg-gray-50 rounded-xl p-6 mb-6">
+          <div className="bg-gray-50 dark:bg-slate-700/50 rounded-xl p-6 mb-6">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <p className="text-sm text-gray-600 font-medium">Your Score</p>
-                <p className="text-3xl font-bold text-blue-600">{finalScore}/{questions.length}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Your Score</p>
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{finalScore}/{questions.length}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-600 font-medium">Percentage</p>
-                <p className="text-3xl font-bold text-green-600">{percentage.toFixed(0)}%</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Percentage</p>
+                <p className="text-3xl font-bold text-green-600 dark:text-green-400">{percentage.toFixed(0)}%</p>
               </div>
             </div>
           </div>
 
           {finalScore > bestScore && (
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-              <p className="text-yellow-800 font-semibold">🎉 New Best Score!</p>
+            <div className="bg-yellow-50 dark:bg-yellow-900/50 border border-yellow-200 dark:border-yellow-500/30 rounded-lg p-4 mb-6">
+              <p className="text-yellow-800 dark:text-yellow-200 font-semibold">🎉 New Best Score!</p>
             </div>
           )}
 
           <div className="flex space-x-4">
             <button
               onClick={() => setGameState('menu')}
-              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-lg transition-colors duration-200"
+              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-lg transition-colors duration-200 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-gray-200"
             >
               Back to Menu
             </button>
             <button
               onClick={startGame}
-              className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 flex items-center justify-center"
+              className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 flex items-center justify-center dark:bg-purple-500 dark:hover:bg-purple-400"
             >
               <RotateCcw className="h-5 w-5 mr-2" />
               Play Again

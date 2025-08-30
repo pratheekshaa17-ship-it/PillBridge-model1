@@ -265,27 +265,27 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
   return (
     <div className="max-w-2xl mx-auto">
       <div className="text-center mb-8">
-        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Pill className="h-8 w-8 text-blue-600" />
+        <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Pill className="h-8 w-8 text-blue-600 dark:text-blue-400" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900">Add New Medication</h2>
-        <p className="text-gray-600 mt-2">Fill in the details for your medication</p>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Add New Medication</h2>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">Fill in the details for your medication</p>
       </div>
 
       {error && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-red-700">{error}</p>
+        <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-500/30 rounded-lg">
+          <p className="text-red-700 dark:text-red-300">{error}</p>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Basic Information */}
-        <div className="bg-gray-50 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
+        <div className="bg-gray-50 dark:bg-slate-800/50 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-4">Basic Information</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Medication Name *
               </label>
               <input
@@ -295,13 +295,13 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="e.g., Lisinopril"
               />
             </div>
 
             <div>
-              <label htmlFor="dosage" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="dosage" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Dosage *
               </label>
               <input
@@ -311,7 +311,7 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                 value={formData.dosage}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="e.g., 10mg"
               />
             </div>
@@ -319,12 +319,12 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
         </div>
 
         {/* Stock Information */}
-        <div className="bg-gray-50 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Stock Information</h3>
+        <div className="bg-gray-50 dark:bg-slate-800/50 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-4">Stock Information</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="totalCount" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="totalCount" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Total Pills *
               </label>
               <input
@@ -335,13 +335,13 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                 onChange={handleInputChange}
                 required
                 min="1"
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="30"
               />
             </div>
 
             <div>
-              <label htmlFor="currentCount" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="currentCount" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Current Pills *
               </label>
               <input
@@ -352,13 +352,13 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                 onChange={handleInputChange}
                 required
                 min="0"
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="30"
               />
             </div>
 
             <div>
-              <label htmlFor="lowStockThreshold" className="block text-lg font-medium text-gray-700 mb-2">
+              <label htmlFor="lowStockThreshold" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Low Stock Alert
               </label>
               <input
@@ -368,7 +368,7 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                 value={formData.lowStockThreshold}
                 onChange={handleInputChange}
                 min="1"
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 placeholder="5"
               />
             </div>
@@ -376,91 +376,91 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
         </div>
 
         {/* Schedule */}
-        <div className="bg-gray-50 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Dose Schedule & Reminder Times *</h3>
+        <div className="bg-gray-50 dark:bg-slate-800/50 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-4">Dose Schedule & Reminder Times *</h3>
           
           <div className="space-y-4">
             {/* Morning */}
-            <div className="border border-gray-300 rounded-lg p-4">
+            <div className="border border-gray-300 dark:border-slate-600 rounded-lg p-4">
               <label className="flex items-center mb-3">
                 <input
                   type="checkbox"
                   name="morningDose"
                   checked={formData.morningDose}
                   onChange={handleInputChange}
-                  className="h-5 w-5 text-blue-600 rounded mr-3"
+                  className="h-5 w-5 text-blue-600 rounded mr-3 dark:bg-slate-700 dark:border-slate-500"
                 />
-                <span className="text-lg font-medium">Morning Dose</span>
+                <span className="text-lg font-medium dark:text-gray-300">Morning Dose</span>
               </label>
               {formData.morningDose && (
                 <div className="ml-8">
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Reminder Time:</label>
+                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Reminder Time:</label>
                   <input
                     type="time"
                     name="morningTime"
                     value={formData.morningTime}
                     onChange={handleInputChange}
-                    className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200"
                   />
                 </div>
               )}
             </div>
             
             {/* Afternoon */}
-            <div className="border border-gray-300 rounded-lg p-4">
+            <div className="border border-gray-300 dark:border-slate-600 rounded-lg p-4">
               <label className="flex items-center mb-3">
                 <input
                   type="checkbox"
                   name="afternoonDose"
                   checked={formData.afternoonDose}
                   onChange={handleInputChange}
-                  className="h-5 w-5 text-blue-600 rounded mr-3"
+                  className="h-5 w-5 text-blue-600 rounded mr-3 dark:bg-slate-700 dark:border-slate-500"
                 />
-                <span className="text-lg font-medium">Afternoon Dose</span>
+                <span className="text-lg font-medium dark:text-gray-300">Afternoon Dose</span>
               </label>
               {formData.afternoonDose && (
                 <div className="ml-8">
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Reminder Time:</label>
+                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Reminder Time:</label>
                   <input
                     type="time"
                     name="afternoonTime"
                     value={formData.afternoonTime}
                     onChange={handleInputChange}
-                    className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200"
                   />
                 </div>
               )}
             </div>
             
             {/* Night */}
-            <div className="border border-gray-300 rounded-lg p-4">
+            <div className="border border-gray-300 dark:border-slate-600 rounded-lg p-4">
               <label className="flex items-center mb-3">
                 <input
                   type="checkbox"
                   name="nightDose"
                   checked={formData.nightDose}
                   onChange={handleInputChange}
-                  className="h-5 w-5 text-blue-600 rounded mr-3"
+                  className="h-5 w-5 text-blue-600 rounded mr-3 dark:bg-slate-700 dark:border-slate-500"
                 />
-                <span className="text-lg font-medium">Night Dose</span>
+                <span className="text-lg font-medium dark:text-gray-300">Night Dose</span>
               </label>
               {formData.nightDose && (
                 <div className="ml-8">
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Reminder Time:</label>
+                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Reminder Time:</label>
                   <input
                     type="time"
                     name="nightTime"
                     value={formData.nightTime}
                     onChange={handleInputChange}
-                    className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200"
                   />
                 </div>
               )}
             </div>
           </div>
           
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-            <p className="text-sm text-blue-700">
+          <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/50 rounded-lg">
+            <p className="text-sm text-blue-700 dark:text-blue-300">
               <strong>Note:</strong> You will receive audio notifications at the specified times. 
               Make sure to allow browser notifications for this website.
             </p>
@@ -468,16 +468,16 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
         </div>
 
         {/* Files */}
-        <div className="bg-gray-50 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Photos & Audio</h3>
+        <div className="bg-gray-50 dark:bg-slate-800/50 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-4">Photos & Audio</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-lg font-medium text-gray-700 mb-2">
+              <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Medication Photo
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                <Camera className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+              <div className="border-2 border-dashed border-gray-300 dark:border-slate-600 rounded-lg p-6 text-center">
+                <Camera className="h-8 w-8 text-gray-400 dark:text-gray-500 mx-auto mb-2" />
                 <input
                   type="file"
                   accept="image/*"
@@ -486,21 +486,21 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                   id="image-upload"
                 />
                 <label htmlFor="image-upload" className="cursor-pointer">
-                  <span className="text-blue-600 font-medium">Upload photo</span>
-                  <p className="text-sm text-gray-500 mt-1">PNG, JPG up to 10MB</p>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">Upload photo</span>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">PNG, JPG up to 10MB</p>
                 </label>
                 {imageFile && (
-                  <p className="text-sm text-green-600 mt-2">{imageFile.name}</p>
+                  <p className="text-sm text-green-600 dark:text-green-400 mt-2">{imageFile.name}</p>
                 )}
               </div>
             </div>
 
             <div>
-              <label className="block text-lg font-medium text-gray-700 mb-2">
+              <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Audio Reminder
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+              <div className="border-2 border-dashed border-gray-300 dark:border-slate-600 rounded-lg p-6 text-center">
+                <Upload className="h-8 w-8 text-gray-400 dark:text-gray-500 mx-auto mb-2" />
                 <input
                   type="file"
                   accept="audio/*"
@@ -509,11 +509,11 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
                   id="audio-upload"
                 />
                 <label htmlFor="audio-upload" className="cursor-pointer">
-                  <span className="text-blue-600 font-medium">Upload audio</span>
-                  <p className="text-sm text-gray-500 mt-1">MP3, WAV up to 10MB</p>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">Upload audio</span>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">MP3, WAV up to 10MB</p>
                 </label>
                 {audioFile && (
-                  <p className="text-sm text-green-600 mt-2">{audioFile.name}</p>
+                  <p className="text-sm text-green-600 dark:text-green-400 mt-2">{audioFile.name}</p>
                 )}
               </div>
             </div>
@@ -522,7 +522,7 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
 
         {/* Instructions */}
         <div>
-          <label htmlFor="instructions" className="block text-lg font-medium text-gray-700 mb-2">
+          <label htmlFor="instructions" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
             Special Instructions
           </label>
           <textarea
@@ -531,7 +531,7 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
             value={formData.instructions}
             onChange={handleInputChange}
             rows={3}
-            className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
             placeholder="Take with food, avoid dairy, etc."
           />
         </div>
@@ -539,7 +539,7 @@ export function AddMedicationForm({ onMedicationAdded }: AddMedicationFormProps)
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-lg font-semibold py-4 rounded-lg transition-colors duration-200"
+          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-lg font-semibold py-4 rounded-lg transition-colors duration-200 dark:disabled:bg-slate-600"
         >
           {loading ? 'Adding Medication...' : 'Add Medication'}
         </button>

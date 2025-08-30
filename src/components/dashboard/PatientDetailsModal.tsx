@@ -200,7 +200,7 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
           <div className="flex items-center justify-between">
@@ -234,7 +234,7 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
         </div>
 
         {/* Tab Navigation */}
-        <div className="border-b border-gray-200">
+        <div className="border-b border-gray-200 dark:border-slate-700">
           <nav className="flex overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -244,8 +244,8 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`flex items-center space-x-2 px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
                     activeTab === tab.id
-                      ? 'border-b-2 border-blue-500 text-blue-600 bg-blue-50'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'border-b-2 border-blue-500 text-blue-600 bg-blue-50 dark:bg-blue-900/50 dark:text-blue-300'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-slate-700'
                   }`}
                 >
                   <Icon className="h-5 w-5" />
@@ -269,26 +269,26 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
                 <div className="space-y-6">
                   {/* Quick Stats */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-green-50 rounded-lg p-4">
+                    <div className="bg-green-50 dark:bg-green-900/50 rounded-lg p-4">
                       <div className="flex items-center">
-                        <Pill className="h-8 w-8 text-green-600 mr-3" />
+                        <Pill className="h-8 w-8 text-green-600 dark:text-green-400 mr-3" />
                         <div>
-                          <p className="text-sm text-green-600 font-medium">Active Medications</p>
-                          <p className="text-xl font-bold text-green-700">{medications.length}</p>
+                          <p className="text-sm text-green-600 dark:text-green-300 font-medium">Active Medications</p>
+                          <p className="text-xl font-bold text-green-700 dark:text-green-200">{medications.length}</p>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-blue-50 rounded-lg p-4">
+                    <div className="bg-blue-50 dark:bg-blue-900/50 rounded-lg p-4">
                       <div className="flex items-center">
-                        <CheckCircle className="h-8 w-8 text-blue-600 mr-3" />
+                        <CheckCircle className="h-8 w-8 text-blue-600 dark:text-blue-400 mr-3" />
                         <div>
-                          <p className="text-sm text-blue-600 font-medium">Today's Progress</p>
-                          <p className="text-xl font-bold text-blue-700">
+                          <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">Today's Progress</p>
+                          <p className="text-xl font-bold text-blue-700 dark:text-blue-200">
                             {acknowledgedToday}/{todayReminders.length}
                           </p>
                           {todayReminders.length === 0 && (
-                            <p className="text-xs text-blue-600 mt-1">
+                            <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
                               No reminders scheduled for today
                             </p>
                           )}
@@ -296,22 +296,22 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
                       </div>
                     </div>
                     
-                    <div className="bg-red-50 rounded-lg p-4">
+                    <div className="bg-red-50 dark:bg-red-900/50 rounded-lg p-4">
                       <div className="flex items-center">
-                        <AlertTriangle className="h-8 w-8 text-red-600 mr-3" />
+                        <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400 mr-3" />
                         <div>
-                          <p className="text-sm text-red-600 font-medium">Low Stock Items</p>
-                          <p className="text-xl font-bold text-red-700">{lowStockMedications.length}</p>
+                          <p className="text-sm text-red-600 dark:text-red-300 font-medium">Low Stock Items</p>
+                          <p className="text-xl font-bold text-red-700 dark:text-red-200">{lowStockMedications.length}</p>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-purple-50 rounded-lg p-4">
+                    <div className="bg-purple-50 dark:bg-purple-900/50 rounded-lg p-4">
                       <div className="flex items-center">
-                        <Heart className="h-8 w-8 text-purple-600 mr-3" />
+                        <Heart className="h-8 w-8 text-purple-600 dark:text-purple-400 mr-3" />
                         <div>
-                          <p className="text-sm text-purple-600 font-medium">Latest Mood</p>
-                          <p className="text-xl font-bold text-purple-700">
+                          <p className="text-sm text-purple-600 dark:text-purple-300 font-medium">Latest Mood</p>
+                          <p className="text-xl font-bold text-purple-700 dark:text-purple-200">
                             {latestMood ? `${getMoodEmoji(latestMood.mood_score)} ${latestMood.mood_score}/5` : 'N/A'}
                           </p>
                         </div>
@@ -321,14 +321,14 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
 
                   {/* Mood Trend */}
                   {moodTrend && (
-                    <div className="bg-gray-50 rounded-lg p-4">
+                    <div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-4">
                       <div className="flex items-center">
                         <moodTrend.icon className={`h-6 w-6 mr-2 ${
                           moodTrend.type === 'improving' ? 'text-green-600' :
                           moodTrend.type === 'declining' ? 'text-red-600' : 'text-gray-600'
                         }`} />
                         <div>
-                          <p className="font-medium text-gray-900">Mood Trend (Last 7 days)</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Mood Trend (Last 7 days)</p>
                           <p className={`text-sm ${
                             moodTrend.type === 'improving' ? 'text-green-600' :
                             moodTrend.type === 'declining' ? 'text-red-600' : 'text-gray-600'
@@ -343,20 +343,20 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
 
                   {/* Recent Activities */}
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Recent Activities</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Recent Activities</h3>
                     <div className="space-y-2">
                       {moodEntries.slice(0, 3).map((entry) => (
-                        <div key={entry._id} className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                        <div key={entry._id} className="flex items-center justify-between bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3">
                           <div className="flex items-center">
                             <div className="text-2xl mr-3">{getMoodEmoji(entry.mood_score)}</div>
                             <div>
-                              <p className="font-medium">Mood Check-in</p>
-                              <p className="text-sm text-gray-600">
+                              <p className="font-medium dark:text-gray-200">Mood Check-in</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400">
                                 {getMoodLabel(entry.mood_score)} ({entry.mood_score}/5)
                               </p>
                             </div>
                           </div>
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
                             {new Date(entry.created_at).toLocaleDateString()}
                           </p>
                         </div>
@@ -369,37 +369,37 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
               {/* Medications Tab */}
               {activeTab === 'medications' && (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-gray-900">Active Medications ({medications.length})</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Active Medications ({medications.length})</h3>
                   {medications.length === 0 ? (
                     <div className="text-center py-8">
-                      <Pill className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-600">No medications found</p>
+                      <Pill className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+                      <p className="text-gray-600 dark:text-gray-400">No medications found</p>
                     </div>
                   ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {medications.map((medication) => (
-                        <div key={medication._id} className="border border-gray-200 rounded-lg p-4">
+                        <div key={medication._id} className="border border-gray-200 dark:border-slate-700 rounded-lg p-4">
                           <div className="flex items-start justify-between mb-2">
-                            <h4 className="font-semibold text-gray-900">{medication.name}</h4>
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100">{medication.name}</h4>
                             <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                               medication.current_count <= medication.low_stock_threshold
-                                ? 'bg-red-100 text-red-800'
-                                : 'bg-green-100 text-green-800'
+                                ? 'bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-200'
+                                : 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-200'
                             }`}>
                               {medication.current_count <= medication.low_stock_threshold ? 'Low Stock' : 'In Stock'}
                             </span>
                           </div>
-                          <p className="text-gray-600 mb-2">{medication.dosage}</p>
-                          <div className="space-y-1 text-sm text-gray-600">
+                          <p className="text-gray-600 dark:text-gray-400 mb-2">{medication.dosage}</p>
+                          <div className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
                             <p>Stock: {medication.current_count}/{medication.total_count} pills</p>
                             <div className="flex space-x-2">
-                              {medication.morning_dose && <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Morning</span>}
-                              {medication.afternoon_dose && <span className="px-2 py-1 bg-orange-100 text-orange-800 rounded-full text-xs">Afternoon</span>}
-                              {medication.night_dose && <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Night</span>}
+                              {medication.morning_dose && <span className="px-2 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-200 rounded-full text-xs">Morning</span>}
+                              {medication.afternoon_dose && <span className="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-200 rounded-full text-xs">Afternoon</span>}
+                              {medication.night_dose && <span className="px-2 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200 rounded-full text-xs">Night</span>}
                             </div>
                           </div>
                           {medication.instructions && (
-                            <p className="mt-2 text-sm text-gray-700">
+                            <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
                               <span className="font-medium">Instructions:</span> {medication.instructions}
                             </p>
                           )}
@@ -413,30 +413,30 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
               {/* Mood History Tab */}
               {activeTab === 'mood' && (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-gray-900">Mood History (Last 30 entries)</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Mood History (Last 30 entries)</h3>
                   {moodEntries.length === 0 ? (
                     <div className="text-center py-8">
-                      <Heart className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-600">No mood entries found</p>
+                      <Heart className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+                      <p className="text-gray-600 dark:text-gray-400">No mood entries found</p>
                     </div>
                   ) : (
                     <div className="space-y-3">
                       {moodEntries.map((entry) => (
-                        <div key={entry._id} className="border border-gray-200 rounded-lg p-4">
+                        <div key={entry._id} className="border border-gray-200 dark:border-slate-700 rounded-lg p-4">
                           <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center">
                               <div className="text-2xl mr-3">{getMoodEmoji(entry.mood_score)}</div>
                               <div>
-                                <p className="font-medium">{getMoodLabel(entry.mood_score)} ({entry.mood_score}/5)</p>
-                                <p className="text-sm text-gray-600">
+                                <p className="font-medium dark:text-gray-100">{getMoodLabel(entry.mood_score)} ({entry.mood_score}/5)</p>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
                                   {new Date(entry.created_at).toLocaleDateString()} at {new Date(entry.created_at).toLocaleTimeString()}
                                 </p>
                               </div>
                             </div>
                           </div>
                           {entry.notes && (
-                            <div className="mt-2 p-2 bg-gray-50 rounded">
-                              <p className="text-sm text-gray-700">
+                            <div className="mt-2 p-2 bg-gray-50 dark:bg-slate-700/50 rounded">
+                              <p className="text-sm text-gray-700 dark:text-gray-300">
                                 <span className="font-medium">Notes:</span> {entry.notes}
                               </p>
                             </div>
@@ -451,33 +451,33 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
               {/* Reminders Tab */}
               {activeTab === 'reminders' && (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-gray-900">Recent Reminders</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Recent Reminders</h3>
                   {getRecentReminders().length === 0 ? (
                     <div className="text-center py-8">
-                      <Clock className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-600">No recent reminders found</p>
+                      <Clock className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+                      <p className="text-gray-600 dark:text-gray-400">No recent reminders found</p>
                     </div>
                   ) : (
                     <div className="space-y-3">
                       {getRecentReminders().map((reminder) => (
-                        <div key={reminder._id} className="border border-gray-200 rounded-lg p-4">
+                        <div key={reminder._id} className="border border-gray-200 dark:border-slate-700 rounded-lg p-4">
                           <div className="flex items-center justify-between">
                             <div>
-                              <p className="font-medium">
+                              <p className="font-medium dark:text-gray-100">
                                 {new Date(reminder.reminder_time).toLocaleDateString()} at {new Date(reminder.reminder_time).toLocaleTimeString()}
                               </p>
-                              <p className="text-sm text-gray-600">Medication ID: {reminder.medication_id}</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400">Medication ID: {reminder.medication_id}</p>
                             </div>
                             <div className="flex space-x-2">
                               <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                                 reminder.acknowledged
-                                  ? 'bg-green-100 text-green-800'
-                                  : 'bg-yellow-100 text-yellow-800'
+                                  ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-200'
+                                  : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-200'
                               }`}>
                                 {reminder.acknowledged ? 'Acknowledged' : 'Pending'}
                               </span>
                               {reminder.escalated && (
-                                <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-200">
                                   Escalated
                                 </span>
                               )}
@@ -493,35 +493,35 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
               {/* Emergency Tab */}
               {activeTab === 'emergency' && (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-gray-900">Emergency Information</h3>
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Emergency Information</h3>
+                  <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-500/30 rounded-lg p-6">
                     <div className="flex items-center mb-4">
-                      <Phone className="h-6 w-6 text-red-600 mr-2" />
-                      <h4 className="font-semibold text-red-900">Emergency Contact</h4>
+                      <Phone className="h-6 w-6 text-red-600 dark:text-red-400 mr-2" />
+                      <h4 className="font-semibold text-red-900 dark:text-red-200">Emergency Contact</h4>
                     </div>
                     <div className="space-y-2">
                       {patient.emergency_contact ? (
                         <div>
-                          <p className="text-sm text-red-700 font-medium">Contact Name:</p>
-                          <p className="text-red-900">{patient.emergency_contact}</p>
+                          <p className="text-sm text-red-700 dark:text-red-300 font-medium">Contact Name:</p>
+                          <p className="text-red-900 dark:text-red-200">{patient.emergency_contact}</p>
                         </div>
                       ) : (
-                        <p className="text-red-700">No emergency contact name provided</p>
+                        <p className="text-red-700 dark:text-red-300">No emergency contact name provided</p>
                       )}
                       
                       {patient.emergency_phone ? (
                         <div>
-                          <p className="text-sm text-red-700 font-medium">Phone Number:</p>
-                          <p className="text-red-900 font-mono">{patient.emergency_phone}</p>
+                          <p className="text-sm text-red-700 dark:text-red-300 font-medium">Phone Number:</p>
+                          <p className="text-red-900 dark:text-red-200 font-mono">{patient.emergency_phone}</p>
                         </div>
                       ) : (
-                        <p className="text-red-700">No emergency phone number provided</p>
+                        <p className="text-red-700 dark:text-red-300">No emergency phone number provided</p>
                       )}
                     </div>
                     
                     {(!patient.emergency_contact || !patient.emergency_phone) && (
-                      <div className="mt-4 p-3 bg-yellow-100 rounded-lg">
-                        <p className="text-sm text-yellow-800">
+                      <div className="mt-4 p-3 bg-yellow-100 dark:bg-yellow-900/50 rounded-lg">
+                        <p className="text-sm text-yellow-800 dark:text-yellow-200">
                           <AlertTriangle className="h-4 w-4 inline mr-1" />
                           Encourage the patient to update their emergency contact information.
                         </p>
@@ -529,10 +529,10 @@ export function PatientDetailsModal({ patient, isOpen, onClose }: PatientDetails
                     )}
                   </div>
                   
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-blue-900 mb-2">Patient Contact Information</h4>
-                    <p className="text-sm text-blue-700">Email: {patient.email}</p>
-                    <p className="text-sm text-blue-700">Registered: {new Date(patient.created_at).toLocaleDateString()}</p>
+                  <div className="bg-blue-50 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-500/30 rounded-lg p-4">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">Patient Contact Information</h4>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">Email: {patient.email}</p>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">Registered: {new Date(patient.created_at).toLocaleDateString()}</p>
                   </div>
                 </div>
               )}

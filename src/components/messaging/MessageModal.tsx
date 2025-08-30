@@ -54,28 +54,28 @@ export function MessageModal({ isOpen, onClose, recipient }: MessageModalProps) 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-md mx-4 shadow-2xl">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 w-full max-w-md mx-4 shadow-2xl">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900">Send Message</h2>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Send Message</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-full transition-colors"
             disabled={sending}
           >
-            <X className="h-5 w-5 text-gray-500" />
+            <X className="h-5 w-5 text-gray-500 dark:text-gray-400" />
           </button>
         </div>
 
-        <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-          <p className="text-sm text-blue-700">
+        <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/50 rounded-lg">
+          <p className="text-sm text-blue-700 dark:text-blue-200">
             <span className="font-medium">To:</span> {recipient.full_name}
           </p>
-          <p className="text-sm text-blue-600">{recipient.email}</p>
+          <p className="text-sm text-blue-600 dark:text-blue-300">{recipient.email}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Subject
             </label>
             <input
@@ -83,7 +83,7 @@ export function MessageModal({ isOpen, onClose, recipient }: MessageModalProps) 
               id="subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
               placeholder="Enter message subject"
               required
               disabled={sending}
@@ -91,7 +91,7 @@ export function MessageModal({ isOpen, onClose, recipient }: MessageModalProps) 
           </div>
 
           <div>
-            <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="content" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Message
             </label>
             <textarea
@@ -99,7 +99,7 @@ export function MessageModal({ isOpen, onClose, recipient }: MessageModalProps) 
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={6}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
               placeholder="Type your message here..."
               required
               disabled={sending}
@@ -110,7 +110,7 @@ export function MessageModal({ isOpen, onClose, recipient }: MessageModalProps) 
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors font-medium"
+              className="flex-1 px-4 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors font-medium dark:bg-slate-600 dark:text-gray-200 dark:hover:bg-slate-500"
               disabled={sending}
             >
               Cancel
@@ -118,7 +118,7 @@ export function MessageModal({ isOpen, onClose, recipient }: MessageModalProps) 
             <button
               type="submit"
               disabled={sending || !subject.trim() || !content.trim()}
-              className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white rounded-lg transition-colors font-medium flex items-center justify-center space-x-2"
+              className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white rounded-lg transition-colors font-medium flex items-center justify-center space-x-2 dark:disabled:bg-slate-600"
             >
               {sending ? (
                 <div className="flex items-center space-x-2">
