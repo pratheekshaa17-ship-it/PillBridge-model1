@@ -42,6 +42,11 @@ PillBridge is a comprehensive medication management platform designed specifical
 - Nearby pharmacy locator
 - One-touch calling for emergency numbers
 
+### 🎨 UI & Theming
+- **Light & Dark Mode:** Toggle between light and dark themes for comfortable viewing in any lighting condition.
+- **Elderly-Friendly Interface:** Large fonts, high-contrast colors, and simple navigation.
+- **Responsive Design:** Adapts to desktops, tablets, and mobile devices.
+
 ## Technology Stack
 
 - **Frontend**: React 18 with TypeScript
