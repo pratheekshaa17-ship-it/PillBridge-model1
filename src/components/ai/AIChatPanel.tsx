@@ -85,35 +85,35 @@ export function AIChatPanel({ patientId, patientName }: AIChatPanelProps) {
 
   if (!patientId) {
     return (
-      <div className="text-center p-8 bg-gray-50 rounded-lg">
-        <Activity className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-lg font-semibold text-gray-700">AI Assistant</h3>
-        <p className="text-sm text-gray-500">Select a patient to start a conversation.</p>
+      <div className="text-center p-8 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
+        <Activity className="h-12 w-12 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+        <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">AI Assistant</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Select a patient to start a conversation.</p>
       </div>
     );
   }
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        AI Assistant for <span className="text-blue-600">{patientName}</span>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        AI Assistant for <span className="text-blue-600 dark:text-blue-400">{patientName}</span>
       </h2>
-      <div className="bg-gray-50 rounded-lg p-4 h-96 flex flex-col">
-        <div className="flex-grow p-4 overflow-y-auto border-b border-gray-200 mb-4">
+      <div className="bg-gray-50 dark:bg-slate-900/50 rounded-lg p-4 h-96 flex flex-col">
+        <div className="flex-grow p-4 overflow-y-auto border-b border-gray-200 dark:border-slate-700 mb-4">
           <div className="space-y-4">
             {messages.map((msg, index) => (
               <div key={index} className={`flex items-start gap-3 ${msg.sender === 'user' ? 'justify-end' : ''}`}>
-                {msg.sender === 'ai' && <Bot className="h-6 w-6 text-blue-600 flex-shrink-0" />}
-                <div className={`px-4 py-2 rounded-2xl max-w-sm ${msg.sender === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-200 text-gray-800 rounded-bl-none'}`}>
+                {msg.sender === 'ai' && <Bot className="h-6 w-6 text-blue-600 dark:text-blue-400 flex-shrink-0" />}
+                <div className={`px-4 py-2 rounded-2xl max-w-sm ${msg.sender === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-200 text-gray-800 rounded-bl-none dark:bg-slate-700 dark:text-gray-200'}`}>
                   <p className="text-sm">{msg.content}</p>
                 </div>
-                {msg.sender === 'user' && <User className="h-6 w-6 text-gray-400 flex-shrink-0" />}
+                {msg.sender === 'user' && <User className="h-6 w-6 text-gray-400 dark:text-gray-500 flex-shrink-0" />}
               </div>
             ))}
             {isLoading && (
               <div className="flex items-start gap-3">
-                <Bot className="h-6 w-6 text-blue-600 flex-shrink-0" />
-                <div className="px-4 py-2 rounded-2xl bg-gray-200 text-gray-800 rounded-bl-none">
+                <Bot className="h-6 w-6 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                <div className="px-4 py-2 rounded-2xl bg-gray-200 dark:bg-slate-700 text-gray-800 rounded-bl-none">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                     <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-75"></div>
@@ -126,13 +126,13 @@ export function AIChatPanel({ patientId, patientName }: AIChatPanelProps) {
           </div>
         </div>
 
-        <div className="p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-gray-200 dark:border-slate-700">
             <div className="mb-2 flex flex-wrap gap-2">
                 {suggestedPrompts.map(prompt => (
                     <button
                         key={prompt}
                         onClick={() => handleSuggestedPrompt(prompt)}
-                        className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs hover:bg-blue-200 transition-colors"
+                        className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs hover:bg-blue-200 transition-colors dark:bg-blue-900/50 dark:text-blue-200 dark:hover:bg-blue-900/80"
                     >
                         {prompt}
                     </button>
@@ -144,12 +144,12 @@ export function AIChatPanel({ patientId, patientName }: AIChatPanelProps) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask the AI assistant..."
-                className="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-gray-200 dark:placeholder-gray-400"
                 disabled={isLoading}
             />
             <button
                 type="submit"
-                className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300"
+                className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300 dark:disabled:bg-slate-600"
                 disabled={isLoading || !input.trim()}
             >
                 <Send className="h-5 w-5" />
