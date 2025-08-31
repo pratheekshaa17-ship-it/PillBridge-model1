@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Heart, Users, Pill, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function AuthForm() {
+  const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true);
   const [role, setRole] = useState<'patient' | 'caregiver'>('patient');
   const [formData, setFormData] = useState({
@@ -41,13 +43,11 @@ export function AuthForm() {
           setError(error.message);
         } else if (user) {
           console.log('Login successful, navigating to dashboard');
-          // Navigate to dashboard after successful login
           navigate('/', { replace: true });
         }
       } else {
         let linkedCaregiverId = null;
         
-        // If patient, caregiver code verification will be handled by the backend
         if (role === 'patient' && formData.caregiverCode) {
           linkedCaregiverId = formData.caregiverCode.toUpperCase();
         }
@@ -65,7 +65,6 @@ export function AuthForm() {
           setError(error.message);
         } else if (user) {
           console.log('Registration successful, navigating to dashboard');
-          // Navigate to dashboard after successful registration
           navigate('/', { replace: true });
         }
       }
@@ -90,24 +89,24 @@ export function AuthForm() {
           <div className="flex items-center justify-center w-20 h-20 bg-blue-600 rounded-2xl mx-auto mb-4">
             <Pill className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">PillBridge</h1>
-          <p className="text-lg text-gray-600">Medication Care Made Simple</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('layout.title')}</h1>
+          <p className="text-lg text-gray-600">{t('layout.subtitle')}</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
-              {isLogin ? 'Welcome Back' : 'Join PillBridge'}
+              {isLogin ? t('auth.welcomeBack') : t('auth.joinPillBridge')}
             </h2>
             <p className="text-gray-600 mt-2">
-              {isLogin ? 'Sign in to your account' : 'Create your account'}
+              {isLogin ? t('auth.signInToAccount') : t('auth.createYourAccount')}
             </p>
           </div>
 
           {!isLogin && (
             <div className="mb-6">
               <label className="block text-lg font-semibold text-gray-700 mb-3">
-                I am a:
+                {t('auth.iAmA')}
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <button
@@ -120,7 +119,7 @@ export function AuthForm() {
                   }`}
                 >
                   <Heart className="h-6 w-6 mr-2" />
-                  <span className="font-medium">Patient</span>
+                  <span className="font-medium">{t('auth.patient')}</span>
                 </button>
                 <button
                   type="button"
@@ -132,7 +131,7 @@ export function AuthForm() {
                   }`}
                 >
                   <Users className="h-6 w-6 mr-2" />
-                  <span className="font-medium">Caregiver</span>
+                  <span className="font-medium">{t('auth.caregiver')}</span>
                 </button>
               </div>
             </div>
@@ -149,7 +148,7 @@ export function AuthForm() {
             {!isLogin && (
               <div>
                 <label htmlFor="fullName" className="block text-lg font-medium text-gray-700 mb-2">
-                  Full Name
+                  {t('auth.fullNameLabel')}
                 </label>
                 <input
                   type="text"
@@ -159,14 +158,14 @@ export function AuthForm() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter your full name"
+                  placeholder={t('auth.fullNamePlaceholder')}
                 />
               </div>
             )}
 
             <div>
               <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">
-                Email Address
+                {t('auth.emailLabel')}
               </label>
               <input
                 type="email"
@@ -176,13 +175,13 @@ export function AuthForm() {
                 onChange={handleInputChange}
                 required
                 className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your email"
+                placeholder={t('auth.emailPlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="password" className="block text-lg font-medium text-gray-700 mb-2">
-                Password
+                {t('auth.passwordLabel')}
               </label>
               <input
                 type="password"
@@ -192,14 +191,14 @@ export function AuthForm() {
                 onChange={handleInputChange}
                 required
                 className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your password"
+                placeholder={t('auth.passwordPlaceholder')}
               />
             </div>
 
             {!isLogin && role === 'patient' && (
               <div>
                 <label htmlFor="caregiverCode" className="block text-lg font-medium text-gray-700 mb-2">
-                  Caregiver Code
+                  {t('auth.caregiverCodeLabel')}
                 </label>
                 <input
                   type="text"
@@ -209,10 +208,10 @@ export function AuthForm() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent uppercase"
-                  placeholder="Enter caregiver's code"
+                  placeholder={t('auth.caregiverCodePlaceholder')}
                 />
                 <p className="text-sm text-gray-600 mt-1">
-                  Ask your caregiver for their 6-character code
+                  {t('auth.caregiverCodeHint')}
                 </p>
               </div>
             )}
@@ -221,7 +220,7 @@ export function AuthForm() {
               <>
                 <div>
                   <label htmlFor="emergencyContact" className="block text-lg font-medium text-gray-700 mb-2">
-                    Emergency Contact Name
+                    {t('auth.emergencyContactLabel')}
                   </label>
                   <input
                     type="text"
@@ -230,13 +229,13 @@ export function AuthForm() {
                     value={formData.emergencyContact}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Emergency contact name"
+                    placeholder={t('auth.emergencyContactPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="emergencyPhone" className="block text-lg font-medium text-gray-700 mb-2">
-                    Emergency Phone Number
+                    {t('auth.emergencyPhoneLabel')}
                   </label>
                   <input
                     type="tel"
@@ -245,7 +244,7 @@ export function AuthForm() {
                     value={formData.emergencyPhone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Emergency phone number"
+                    placeholder={t('auth.emergencyPhonePlaceholder')}
                   />
                 </div>
               </>
@@ -256,7 +255,7 @@ export function AuthForm() {
               disabled={loading}
               className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-lg font-semibold py-4 rounded-lg transition-colors duration-200"
             >
-              {loading ? 'Please wait...' : (isLogin ? 'Sign In' : 'Create Account')}
+              {loading ? t('auth.pleaseWait') : (isLogin ? t('auth.signIn') : t('auth.createAccount'))}
             </button>
           </form>
 
@@ -277,7 +276,7 @@ export function AuthForm() {
               }}
               className="text-blue-600 hover:text-blue-700 font-medium text-lg"
             >
-              {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
+              {isLogin ? t('auth.promptSignUp') : t('auth.promptSignIn')}
             </button>
           </div>
         </div>

@@ -1,0 +1,134 @@
+{
+  "locale": "en-US",
+  "yes": "Yes",
+  "no": "No",
+  "edit": "Edit",
+  "delete": "Delete",
+  "save": "Save",
+  "layout": {
+    "title": "PillBridge",
+    "subtitle": "Medication Care Made Simple",
+    "roleCaregiver": "Caregiver",
+    "rolePatient": "Patient",
+    "signOut": "Sign Out"
+  },
+  "auth": {
+    "welcomeBack": "Welcome Back",
+    "joinPillBridge": "Join PillBridge",
+    "signInToAccount": "Sign in to your account",
+    "createYourAccount": "Create your account",
+    "iAmA": "I am a:",
+    "patient": "Patient",
+    "caregiver": "Caregiver",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "caregiverCodeLabel": "Caregiver Code",
+    "caregiverCodePlaceholder": "Enter caregiver's code",
+    "caregiverCodeHint": "Ask your caregiver for their 6-character code",
+    "emergencyContactLabel": "Emergency Contact Name",
+    "emergencyContactPlaceholder": "Emergency contact name",
+    "emergencyPhoneLabel": "Emergency Phone Number",
+    "emergencyPhonePlaceholder": "Emergency phone number",
+    "pleaseWait": "Please wait...",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "promptSignUp": "Don't have an account? Sign up",
+    "promptSignIn": "Already have an account? Sign in"
+  },
+  "patientDashboard": {
+    "welcome": "Welcome back, {{name}}!",
+    "todayIs": "Today is {{date}}",
+    "downloadReport": "Download Report",
+    "downloadReportTitle": "Download your health report as PDF",
+    "generating": "Generating...",
+    "todaysReminders": "Today's Reminders",
+    "medications": "medication(s)",
+    "remindersActive": {
+      "title": "Audio Medication Reminders Active",
+      "description": "You'll receive audio notifications at your scheduled medication times. Make sure your browser notifications are enabled for the best experience."
+    },
+    "stats": {
+      "activeMedications": "Active Medications",
+      "lowStockItems": "Low Stock Items",
+      "moodToday": "Mood Today",
+      "trackNow": "Track Now"
+    },
+    "tabs": {
+      "myMedications": "My Medications",
+      "addMedication": "Add Medication",
+      "dailyCheckIn": "Daily Check-in",
+      "pillGame": "Pill Game",
+      "emergency": "Emergency",
+      "reminders": "Reminders",
+      "messages": "Messages"
+    },
+    "reminders": {
+      "title": "Reminders",
+      "addReminder": "Add Reminder",
+      "editReminder": "Edit Reminder",
+      "reminderTime": "Reminder Time",
+      "time": "Time",
+      "acknowledged": "Acknowledged",
+      "escalated": "Escalated"
+    },
+    "alerts": {
+      "failedToSaveReminder": "Failed to save reminder",
+      "confirmDeleteReminder": "Delete this reminder?",
+      "failedToDeleteReminder": "Failed to delete reminder",
+      "medicationTakenSuccess": "✅ Successfully marked {{medicationNames}} as taken for {{timeOfDay}}!",
+      "failedToMarkMedication": "Failed to mark medication as taken",
+      "failedToMarkMedicationError": "❌ Failed to mark medication as taken: {{message}}",
+      "pdfGenerationFailed": "PDF generation failed, but HTML report was downloaded. You can open this in your browser and print it as PDF.",
+      "failedToDownloadReport": "Failed to download report"
+    }
+  },
+  "caregiverDashboard": {
+    "title": "Caregiver Dashboard",
+    "managingCare": "Managing care for {{count}} patient",
+    "managingCare_plural": "Managing care for {{count}} patients",
+    "yourCode": "Your Caregiver Code",
+    "shareWithPatients": "Share with patients",
+    "stats": {
+      "activePatients": "Active Patients",
+      "activeAlerts": "Active Alerts",
+      "onTrackToday": "On Track Today",
+      "pendingActions": "Pending Actions"
+    },
+    "alerts": {
+      "title": "Active Alerts",
+      "missedMedication": "{{name}} - Missed Medication",
+      "scheduled": "Scheduled: {{date}}",
+      "escalated": "Escalated",
+      "pending": "Pending"
+    },
+    "mood": {
+      "title": "Recent Mood Updates",
+      "new": "{{count}} new",
+      "moodLabel": "Mood: {{mood}} ({{score}}/5)",
+      "markRead": "Mark Read",
+      "read": "Read",
+      "newStatus": "New",
+      "notes": "Notes",
+      "showing": "Showing {{count}} of {{total}} notifications"
+    },
+    "patients": {
+      "title": "Your Patients",
+      "description": "Click on a patient to interact with the AI assistant below.",
+      "noPatientsTitle": "No Patients Yet",
+      "noPatientsDescription": "Share your caregiver code with patients to get started",
+      "yourCode": "Your Code"
+    }
+  },
+  "moods": {
+    "verySad": "Very Sad",
+    "sad": "Sad",
+    "okay": "Okay",
+    "good": "Good",
+    "great": "Great",
+    "unknown": "Unknown"
+  }
+}

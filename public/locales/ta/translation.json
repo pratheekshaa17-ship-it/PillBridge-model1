@@ -1,0 +1,134 @@
+{
+  "locale": "ta-IN",
+  "yes": "ஆம்",
+  "no": "இல்லை",
+  "edit": "திருத்து",
+  "delete": "நீக்கு",
+  "save": "சேமி",
+  "layout": {
+    "title": "பில் பிரிட்ஜ்",
+    "subtitle": "Medication Care Made Simple",
+    "roleCaregiver": "பாதுகாவலர்",
+    "rolePatient": "நோயாளி",
+    "signOut": "வெளியேறு"
+  },
+  "auth": {
+    "welcomeBack": "மீண்டும் வரவேற்கிறோம்",
+    "joinPillBridge": "பில் பிரிட்ஜில் சேரவும்",
+    "signInToAccount": "உங்கள் கணக்கில் உள்நுழையவும்",
+    "createYourAccount": "உங்கள் கணக்கை உருவாக்கவும்",
+    "iAmA": "நான் ஒரு:",
+    "patient": "நோயாளி",
+    "caregiver": "பாதுகாவலர்",
+    "fullNameLabel": "முழு பெயர்",
+    "fullNamePlaceholder": "உங்கள் முழு பெயரை உள்ளிடவும்",
+    "emailLabel": "மின்னஞ்சல் முகவரி",
+    "emailPlaceholder": "உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+    "passwordLabel": "கடவுச்சொல்",
+    "passwordPlaceholder": "உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+    "caregiverCodeLabel": "பாதுகாவலர் குறியீடு",
+    "caregiverCodePlaceholder": "பாதுகாவலரின் குறியீட்டை உள்ளிடவும்",
+    "caregiverCodeHint": "உங்கள் பாதுகாவலரிடம் இருந்து 6-எழுத்து குறியீட்டைக் கேட்கவும்",
+    "emergencyContactLabel": "அவசர தொடர்பு பெயர்",
+    "emergencyContactPlaceholder": "அவசர தொடர்பு பெயர்",
+    "emergencyPhoneLabel": "அவசர தொலைபேசி எண்",
+    "emergencyPhonePlaceholder": "அவசர தொலைபேசி எண்",
+    "pleaseWait": "காத்திருக்கவும்...",
+    "signIn": "உள்நுழை",
+    "createAccount": "கணக்கை உருவாக்கு",
+    "promptSignUp": "கணக்கு இல்லையா? பதிவு செய்க",
+    "promptSignIn": "ஏற்கனவே கணக்கு உள்ளதா? உள்நுழையவும்"
+  },
+  "patientDashboard": {
+    "welcome": "மீண்டும் வரவேற்கிறோம், {{name}}!",
+    "todayIs": "இன்று {{date}}",
+    "downloadReport": "அறிக்கையைப் பதிவிறக்கவும்",
+    "downloadReportTitle": "உங்கள் சுகாதார அறிக்கையை PDF ஆக பதிவிறக்கவும்",
+    "generating": "உருவாக்கப்படுகிறது...",
+    "todaysReminders": "இன்றைய நினைவூட்டல்கள்",
+    "medications": "மருந்து(கள்)",
+    "remindersActive": {
+      "title": "ஒலி மருந்து நினைவூட்டல்கள் செயலில் உள்ளன",
+      "description": "உங்களின் திட்டமிடப்பட்ட மருந்து நேரங்களில் ஒலி அறிவிப்புகளைப் பெறுவீர்கள். சிறந்த அனுபவத்திற்கு உங்கள் உலாவி அறிவிப்புகள் இயக்கப்பட்டிருப்பதை உறுதிசெய்யவும்."
+    },
+    "stats": {
+      "activeMedications": "செயலில் உள்ள மருந்துகள்",
+      "lowStockItems": "குறைந்த இருப்பு பொருட்கள்",
+      "moodToday": "இன்றைய மனநிலை",
+      "trackNow": "இப்போது கண்காணிக்கவும்"
+    },
+    "tabs": {
+      "myMedications": "எனது மருந்துகள்",
+      "addMedication": "மருந்து சேர்",
+      "dailyCheckIn": "தினசரி சரிபார்ப்பு",
+      "pillGame": "மாத்திரை விளையாட்டு",
+      "emergency": "அவசரம்",
+      "reminders": "நினைவூட்டல்கள்",
+      "messages": "செய்திகள்"
+    },
+    "reminders": {
+      "title": "நினைவூட்டல்கள்",
+      "addReminder": "நினைவூட்டலைச் சேர்",
+      "editReminder": "நினைவூட்டலைத் திருத்து",
+      "reminderTime": "நினைவூட்டல் நேரம்",
+      "time": "நேரம்",
+      "acknowledged": "ஒப்புக்கொள்ளப்பட்டது",
+      "escalated": "தீவிரப்படுத்தப்பட்டது"
+    },
+    "alerts": {
+      "failedToSaveReminder": "நினைவூட்டலைச் சேமிக்க முடியவில்லை",
+      "confirmDeleteReminder": "இந்த நினைவூட்டலை நீக்கவா?",
+      "failedToDeleteReminder": "நினைவூட்டலை நீக்க முடியவில்லை",
+      "medicationTakenSuccess": "✅ {{medicationNames}} மருந்து {{timeOfDay}} நேரத்திற்கு வெற்றிகரமாக எடுத்துக் கொள்ளப்பட்டது!",
+      "failedToMarkMedication": "மருந்தை எடுத்துக்கொண்டதாகக் குறிக்க முடியவில்லை",
+      "failedToMarkMedicationError": "❌ மருந்தை எடுத்துக்கொண்டதாகக் குறிக்க முடியவில்லை: {{message}}",
+      "pdfGenerationFailed": "PDF உருவாக்கம் தோல்வியடைந்தது, ஆனால் HTML அறிக்கை பதிவிறக்கம் செய்யப்பட்டது. இதை உங்கள் உலாவியில் திறந்து PDF ஆக அச்சிடலாம்.",
+      "failedToDownloadReport": "அறிக்கையைப் பதிவிறக்க முடியவில்லை"
+    }
+  },
+  "caregiverDashboard": {
+    "title": "பாதுகாவலர் டாஷ்போர்டு",
+    "managingCare": "{{count}} நோயாளியைக் கவனித்தல்",
+    "managingCare_plural": "{{count}} நோயாளிகளைக் கவனித்தல்",
+    "yourCode": "உங்கள் பாதுகாவலர் குறியீடு",
+    "shareWithPatients": "நோயாளிகளுடன் பகிரவும்",
+    "stats": {
+      "activePatients": "செயலில் உள்ள நோயாளிகள்",
+      "activeAlerts": "செயலில் உள்ள எச்சரிக்கைகள்",
+      "onTrackToday": "இன்று சரியான பாதையில்",
+      "pendingActions": "நிலுவையில் உள்ள நடவடிக்கைகள்"
+    },
+    "alerts": {
+      "title": "செயலில் உள்ள எச்சரிக்கைகள்",
+      "missedMedication": "{{name}} - மருந்து தவறியது",
+      "scheduled": "திட்டமிடப்பட்டது: {{date}}",
+      "escalated": "தீவிரப்படுத்தப்பட்டது",
+      "pending": "நிலுவையில்"
+    },
+    "mood": {
+      "title": "சமீபத்திய மனநிலை புதுப்பிப்புகள்",
+      "new": "{{count}} புதியது",
+      "moodLabel": "மனநிலை: {{mood}} ({{score}}/5)",
+      "markRead": "படித்ததாகக் குறி",
+      "read": "படித்தது",
+      "newStatus": "புதியது",
+      "notes": "குறிப்புகள்",
+      "showing": "{{total}} அறிவிப்புகளில் {{count}} காட்டப்படுகிறது"
+    },
+    "patients": {
+      "title": "உங்கள் நோயாளிகள்",
+      "description": "கீழேயுள்ள AI உதவியாளருடன் உரையாட ஒரு நோயாளியைக் கிளிக் செய்யவும்.",
+      "noPatientsTitle": "இன்னும் நோயாளிகள் இல்லை",
+      "noPatientsDescription": "தொடங்குவதற்கு உங்கள் பாதுகாவலர் குறியீட்டை நோயாளிகளுடன் பகிரவும்",
+      "yourCode": "உங்கள் குறியீடு"
+    }
+  },
+  "moods": {
+    "verySad": "மிகவும் சோகம்",
+    "sad": "சோகம்",
+    "okay": "சரி",
+    "good": "நல்லது",
+    "great": "அருமை",
+    "unknown": "தெரியாத"
+  }
+}

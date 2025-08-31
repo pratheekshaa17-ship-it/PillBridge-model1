@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { LogOut, Pill, Heart, Users, Settings } from 'lucide-react';
+import { LogOut, Pill, Heart, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,9 +9,14 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const { userProfile, signOut } = useAuth();
+  const { t, i18n } = useTranslation();
 
   const handleSignOut = async () => {
     await signOut();
+  };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
@@ -23,36 +29,60 @@ export function Layout({ children }: LayoutProps) {
                 <Pill className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">PillBridge</h1>
-                <p className="text-sm text-gray-600">Medication Care Made Simple</p>
+                <h1 className="text-2xl font-bold text-gray-900">{t('layout.title')}</h1>
+                <p className="text-sm text-gray-600">{t('layout.subtitle')}</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-6">
-              <div className="text-right">
-                <p className="text-lg font-semibold text-gray-900">{userProfile?.full_name}</p>
-                <p className="text-sm text-gray-600 capitalize">
-                  {userProfile?.role === 'caregiver' ? (
-                    <span className="flex items-center">
-                      <Users className="h-4 w-4 mr-1" />
-                      Caregiver
-                    </span>
-                  ) : (
-                    <span className="flex items-center">
-                      <Heart className="h-4 w-4 mr-1" />
-                      Patient
-                    </span>
-                  )}
-                </p>
+              {/* Language Switcher - Always Visible */}
+              <div className="flex items-center space-x-2 border border-gray-200 rounded-lg p-1">
+                <button
+                  onClick={() => changeLanguage('en')}
+                  className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
+                    i18n.language.startsWith('en') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => changeLanguage('ta')}
+                  className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
+                    i18n.language === 'ta' ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  தமிழ்
+                </button>
               </div>
-              
-              <button
-                onClick={handleSignOut}
-                className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
-              >
-                <LogOut className="h-5 w-5 text-gray-600" />
-                <span className="text-gray-700 font-medium">Sign Out</span>
-              </button>
+
+              {/* User-specific controls - Conditionally Visible */}
+              {userProfile && (
+                <>
+                  <div className="text-right">
+                    <p className="text-lg font-semibold text-gray-900">{userProfile?.full_name}</p>
+                    <p className="text-sm text-gray-600 capitalize">
+                      {userProfile?.role === 'caregiver' ? (
+                        <span className="flex items-center">
+                          <Users className="h-4 w-4 mr-1" />
+                          {t('layout.roleCaregiver')}
+                        </span>
+                      ) : (
+                        <span className="flex items-center">
+                          <Heart className="h-4 w-4 mr-1" />
+                          {t('layout.rolePatient')}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleSignOut}
+                    className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+                  >
+                    <LogOut className="h-5 w-5 text-gray-600" />
+                    <span className="text-gray-700 font-medium">{t('layout.signOut')}</span>
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

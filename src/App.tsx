@@ -55,7 +55,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/auth" element={<AuthForm />} />
+          <Route path="/auth" element={<Layout><AuthForm /></Layout>} />
           <Route path="/login" element={<Navigate to="/auth" replace />} />
           <Route path="/register" element={<Navigate to="/auth" replace />} />
           <Route

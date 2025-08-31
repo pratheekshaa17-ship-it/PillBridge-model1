@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Noto Sans Tamil';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/NotoSansTamil-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans Tamil';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/NotoSansTamil-Bold.ttf') format('truetype');
+}
