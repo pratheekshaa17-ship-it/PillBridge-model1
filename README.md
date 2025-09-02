@@ -26,6 +26,10 @@ PillBridge is a comprehensive medication management platform designed specifical
 - Score tracking and progress monitoring
 - Reinforcement learning for medication identification
 
+### 🤖 AI Assistant
+- **AI-powered chat** for caregivers to query patient data in natural language.
+- Get summaries of patient's medication adherence, mood trends, and more.
+
 ### 👥 Caregiver Dashboard
 - Monitor multiple patients
 - View medication adherence and alerts
@@ -100,8 +104,12 @@ PillBridge is a comprehensive medication management platform designed specifical
      PORT=3000
      NODE_ENV=development
      JWT_SECRET=your_jwt_secret_key_here_change_in_production
+
+     # Optional: For the AI Assistant feature
+     OPENAI_API_KEY=your_openai_api_key_here
      ```
-   - For MongoDB Atlas, replace `MONGODB_URI` with your connection string
+   - For MongoDB Atlas, replace `MONGODB_URI` with your connection string.
+   - To enable the AI Assistant feature, you must provide an `OPENAI_API_KEY`. You can get an API key from the [OpenAI Platform](https://platform.openai.com/).
 
 6. **Initialize the database**
    ```bash

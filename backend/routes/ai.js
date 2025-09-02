@@ -4,8 +4,6 @@ const OpenAI = require('openai');
 const { connectDb } = require('../db'); // Corrected to use connectDb
 const { ObjectId } = require('mongodb');
 
-require('dotenv').config();
-
 if (!process.env.OPENAI_API_KEY) {
   console.error("FATAL ERROR: OPENAI_API_KEY is not defined in .env file.");
   // process.exit(1); // Don't exit in dev, but log error
